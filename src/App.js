@@ -11,10 +11,19 @@ class App extends React.Component{
         searchfield:''
     }
   }
+
+  async componentDidMount(){
+    const swapi_resp = await fetch('https://swapi.py4e.com/api/people/');
+    const fecthed_people = await swapi_resp.json();
+    console.log(fecthed_people.results);
+    this.setState({people:fecthed_people.results});
+  }
+
+
   render(){
     return (
       <div>
-        <CardList />
+        <CardList people={this.state.people}/>
       </div>
     );
   }

@@ -1,21 +1,20 @@
 import React from 'react';
 
-const Card =()=>{
+const Card =(props)=>{
+    const {name,birth_year,gender,planet}=props;
 
     return (
-        <div class="ui card">
-            <div class="image"><img src="/images/avatar/large/matthew.png" /></div>
-            <div class="content">
-                <div class="header">Matthew</div>
-                <div class="meta"><span class="date">Joined in 2015</span></div>
-                <div class="description">Matthew is a musician living in Nashville.</div>
+        <div className="ui card">
+           
+            <div className="content">
+                <div className="header">{name}</div>
+                <div className="meta  column">
+                    <span className="item">Birth year: {birth_year}</span>
+                    <span className="item">Gender: {gender}</span>
+                </div>
+                <div className="description">{name}'s home planet is {planet}.</div>
             </div>
-            <div class="extra content">
-                <a>
-                <i aria-hidden="true" class="user icon"></i>
-                22 Friends
-                </a>
-            </div>
+           
         </div>
     );
 }
